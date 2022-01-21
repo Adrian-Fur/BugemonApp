@@ -1,0 +1,25 @@
+<header class="bg-dark py-5">
+    <div *ngIf="!registerMode" class="container px-5 bg-dark py-5" >
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                    <h1 class="display-5 fw-bolder text-white mb-2">Bugemon</h1>
+                    <h2 class="display-5 fw-bolder text-white mb-2">Catch and fix all the bugs!</h2>
+                    <p class="lead text-white-50 mb-4">Bugemon is a bug tracking system. A simple, fast and scalable bug tracking system that helps you manage bugs easily and deliver great products on time.</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a class="btn btn-primary btn-lg px-4 mr-3" (click)="registerToggle()">Register</a>
+                        <a class="btn btn-outline-light btn-lg" href="#!">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+        </div>
+    </div>
+</div>
