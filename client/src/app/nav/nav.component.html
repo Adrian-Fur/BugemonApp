@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Bugemon</a>
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active">Bugemon</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,13 +8,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Bugs</a>
+                    <a class="nav-link" routerLink="/members" routerLinkActive="active">Bugs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tasks</a>
+                    <a class="nav-link" routerLink="/lists" routerLinkActive="active">Tasks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Messages</a>
+                    <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
                 </li>
             </ul>
             
