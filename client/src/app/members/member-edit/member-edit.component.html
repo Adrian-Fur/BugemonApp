@@ -1,0 +1,55 @@
+<div class="row" *ngIf="member">
+    <div class="col-4">
+        <h1>Your Profile</h1>
+    </div>
+    <div class="col-8">
+        <div class="alert alert-info" *ngIf="editForm.dirty">
+            <strong>Information: </strong> You have made changes. Any unsaved changes will be lost.
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}"
+            class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{member.city}}, {{member.country}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{member.age}}</p>
+                </div>
+                <div>
+                    <strong>Last Active:</strong>
+                    <p>{{member.lastActive}}</p>
+                </div>
+                <div>
+                    <strong>Member since:</strong>
+                    <p>{{member.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button [disabled]="!editForm.dirty" form="edit-form" type="submit" class="btn btn-success btn-block">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading='About {{member.knownAs}}'>
+                <form #editForm="ngForm" id="edit-form" (ngSubmit)="updateMember()">
+                    <h1>Details</h1>
+                    <h4>Email</h4>
+                    <input class="form-control col-sm-4" [(ngModel)]="member.email" name="email" rows="1">
+                    <h4 class="mt-2">City</h4>
+                    <input class="form-control col-sm-4" [(ngModel)]="member.city" name="city" rows="1">
+                    <h4 class="mt-2">Country</h4>
+                    <input class="form-control col-sm-4" [(ngModel)]="member.country" name="country" rows="1">
+                </form>
+            </tab>
+            <tab heading='Edit Photos'>
+                <h4>Photo edit</h4>
+            </tab>
+        </tabset>
+    </div>
+</div>
